@@ -97,3 +97,28 @@ var removeElement3 = function(nums, val) {
 console.log(removeElement3([3, 2, 2, 3], 3))
 console.log(removeElement3([0, 1, 2, 2, 3, 0, 4, 2], 2))
 console.log(removeElement3([1], 1))
+
+
+/**
+ * 方案五
+ * @param {number[]} nums
+ * @param {number} val
+ * @return {number}
+ * 时间复杂度：O(n2)
+ * 空间复杂度：O(1)
+ */
+var removeElement4 = function(nums, val) {
+    let flag = true;
+    while (flag) {
+        const index = nums.findIndex(item => item === val)
+        if (~index) {
+            nums.splice(index, 1);
+            continue;
+        }
+        flag = false;
+    }
+    return nums.length;
+};
+console.log(removeElement4([3, 2, 2, 3], 3))
+console.log(removeElement4([0, 1, 2, 2, 3, 0, 4, 2], 2))
+console.log(removeElement4([1], 1))
